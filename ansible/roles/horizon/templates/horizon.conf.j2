@@ -9,6 +9,7 @@ Listen {{ api_interface_address }}:80
     WSGIScriptReloading On
     WSGIDaemonProcess horizon-http processes=5 threads=1 user=horizon group=horizon display-name=%{GROUP} python-path={{ python_path }}
     WSGIProcessGroup horizon-http
+    WSGIApplicationGroup %{GLOBAL} 
     WSGIScriptAlias / {{ python_path }}/openstack_dashboard/wsgi/django.wsgi
     WSGIPassAuthorization On
 
