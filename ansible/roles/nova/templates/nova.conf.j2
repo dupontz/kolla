@@ -169,6 +169,7 @@ memcached_servers = {% for host in groups['memcached'] %}{% if orchestration_eng
 
 [libvirt]
 connection_uri = "qemu+tcp://{{ api_interface_address }}/system"
+virt_type = qemu
 {% if enable_ceph | bool and nova_backend == "rbd" %}
 images_type = rbd
 images_rbd_pool = {{ ceph_nova_pool_name }}
